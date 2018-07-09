@@ -5,7 +5,8 @@ import { HomeComponent } from "./home.cmp";
 import { JQueryComponent } from "./jquery.cmp";
 
 const routes : Routes = [
-    {path:"", component:HomeComponent, pathMatch:"full"},
+    {path:"", redirectTo:"home", pathMatch:"full"},
+    {path:"home", component:HomeComponent, pathMatch:"full"},
     {path:"lazy", loadChildren:"./lazy/lazy.module#LazyModule"},
     {path:"jquery", component:JQueryComponent, pathMatch:"full"}
 ]

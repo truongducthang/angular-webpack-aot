@@ -6,14 +6,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/']">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/lazy']">Lazy Loaded<span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/jquery']">Use JQuery UI</a>
+                <a class="nav-link" [routerLink]="['/lazy']" routerLinkActive="active">Lazy Loaded</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/jquery']" routerLinkActive="active">Use JQuery UI</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
