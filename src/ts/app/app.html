@@ -1,1 +1,13 @@
-<h1>Hello Angular {{date()}}</h1>
+<div class="container-fluid">
+    <!-- menu for different features -->
+    <menu-bar></menu-bar>
+
+    <div class="row">
+        <div class="col-12">
+            <small class="float-right">{{dateString}}</small>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+    
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p>This section demonstrate how to use external JQuery UI. In this example, timepicker and datepair are used.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p>Choose your time range</p>
+        </div>
+    </div>
+
+    <div class="form-group row timepair">
+        <div class="col-md-6">
+            <label class="col-form-label form-control-label">From</label>
+            <input type="text" class="time-picker time start form-control" (keydown)="noinput($event)"/>
+        </div>
+
+        <div class="col-md-6">
+            <label class="col-form-label form-control-label">To</label>
+            <input type="text" class="time-picker time end form-control" (keydown)="noinput($event)"/>
+        </div>
+    </div>
+    <div class="row" *ngIf="selectedTimeRange">
+        <div class="col-12">
+            Selected time: {{selectedTimeRange}}
+        </div>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+import "bootstrap"
 import * as $ from "jquery"
 
 // this is ugly, but needed to make datepair work

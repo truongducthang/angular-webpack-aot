@@ -48,11 +48,13 @@
     "@angular/platform-browser": "^6.0.7",
     "@angular/platform-browser-dynamic": "^6.0.7",
     "@angular/router": "^6.0.7",
+    "bootstrap": "^4.1.1",
     "core-js": "^2.5.7",
     "datepair.js": "^0.4.16",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.5",
+    "popper.js": "^1.14.3",
     "rxjs": "^6.2.1",
     "timepicker": "^1.11.12",
     "zone.js": "^0.8.26"

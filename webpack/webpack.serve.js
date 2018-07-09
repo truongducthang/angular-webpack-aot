@@ -6,7 +6,8 @@ module.exports = webpackMerge(webpackConfig, {
 		hot : {
 			port: 9081
 		},
-		//hot: false,
-		port: 9091
+		port: 3000,
+		open:true
+
 	}
 });

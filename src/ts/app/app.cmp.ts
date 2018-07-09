@@ -6,8 +6,16 @@ import {Component} from "@angular/core"
 })
 export class AppCmp {
 
-	date() {
-		return new Date().toString()
+	dateString : string
+
+	constructor() {
+		setInterval(() => {
+			this.formatDateString(new Date())
+		}, 1000)
+	}
+
+	formatDateString(date : Date) {
+		this.dateString = date.toTimeString()
 	}
 
 }
