@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -12,7 +12,7 @@
     "outDir": "dist"
   },
   "angularCompilerOptions": {
-    "genDir": "compiled",
-    "skipMetadataEmit" : true
+    "skipMetadataEmit" : true,
+    "skipCodeGeneration": false
   }
 }

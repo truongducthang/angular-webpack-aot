@@ -1,6 +1,8 @@
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.common.js');
-const abs = require("../helpers")
+const abs = require("./helpers")
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = webpackMerge(commonConfig, {
     mode: 'development',
@@ -8,12 +10,12 @@ module.exports = webpackMerge(commonConfig, {
     devtool: "cheap-module-eval-source-map",
 
     entry: {
-        main: abs('./src/ts/main-dev.ts')
+        main: './src/ts/main-dev.ts'
     },
 
     output: {
         path: abs(__dirname, "./dist"), // this path doesn't have any effect since in dev, we serve from memory (webpack-serve)
-        publicPath: '/',
+        publicPath: '/devAssets/',
         filename: '[name].js',
         chunkFilename: '[id].[name].chunk.js'
     },
@@ -25,10 +27,21 @@ module.exports = webpackMerge(commonConfig, {
                 loaders: [
                     'angular2-template-loader',
                     'awesome-typescript-loader',
-                    'angular-router-loader?loader=import&genDir=compiled&debug=true'
+                    'angular-router-loader?loader=require&genDir=compiled&debug=true'
                 ],
 				exclude: /node_modules/
             }
         ]
-    }
+    },
+
+    resolve: {
+		extensions: [ '.tsx', '.ts', '.js','scss', 'css', 'woff', 'woff2', 'ttf', 'otf', 'eot' ],
+        mainFields: ['browser', 'module', 'main']
+    },
+    
+    plugins: [
+        new HtmlWebpackPlugin({
+			template: './src/index.html'
+        })
+    ]
 });

@@ -1,10 +1,10 @@
-import {NgModule} from "@angular/core"
+import {NgModule, Type} from "@angular/core"
 import { Routes, RouterModule } from "@angular/router";
-import { AppCmp } from "./app.cmp";
 import { HomeComponent } from "./home.cmp";
 import { JQueryComponent } from "./jquery.cmp";
 
-const routes : Routes = [
+
+export const routes : Routes = [
     {path:"", redirectTo:"home", pathMatch:"full"},
     {path:"home", component:HomeComponent, pathMatch:"full"},
     {path:"lazy", loadChildren:"./lazy/lazy.module#LazyModule"},

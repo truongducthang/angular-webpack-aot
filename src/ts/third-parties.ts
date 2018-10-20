@@ -1,9 +1,12 @@
 import "bootstrap"
 import * as $ from "jquery"
 
-// this is ugly, but needed to make datepair work
-window["jQuery"] = $
+(function($ : any) {
+    window["jQuery"] = $
 
-import "timepicker"
-import "datepair.js/dist/datepair"
-import "datepair.js/dist/jquery.datepair"
+	// we need to ensure jquery is imported and available before requiring these JQuery UI library
+    require("timepicker")
+    require("datepair.js/dist/datepair")
+    require("datepair.js/dist/jquery.datepair")
+
+})($)

@@ -1,15 +1,16 @@
 import {NgModule} from "@angular/core"
 import { AppCmp } from "./app.cmp"
-import { BrowserModule } from "@angular/platform-browser"
 import { MenuBar } from "./menubar.cmp"
-import {RouterModule} from "@angular/router"
 import { AppRouting } from "./app.routes"
 import { HomeComponent } from "./home.cmp"
 import { JQueryComponent } from "./jquery.cmp"
+import { BrowserModule } from "@angular/platform-browser"
+import { FormsModule } from "@angular/forms"
 
 @NgModule({
 	imports:[
-		BrowserModule, RouterModule, 
+		FormsModule,
+		BrowserModule,
 		AppRouting
 	],
 	exports:[MenuBar],

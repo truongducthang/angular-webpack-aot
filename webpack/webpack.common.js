@@ -1,14 +1,16 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-const abs = require('../helpers')
+const glob = require('glob');
+const abs = require('./helpers')
+const PurifyCSSPlugin = require('purifycss-webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	entry: {
 		style: abs('./src/scss/style.scss')
 	},
+	
 	module: {
 		rules: [
-			/* Optional rules to manage more assets types
+			/* Optional rules to manage more assets types*/
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/,
 				loaders: ['file-loader']
@@ -17,37 +19,35 @@ module.exports = {
 				test: /\.(png|svg|jpg|gif)$/,
 				loaders: ['file-loader']
 			},
-			*/
+			
 			{
 				test: /\.html$/,
         		loader: 'html-loader'
 			},
 			{
 				test:/\.(scss|css)$/,
-				use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [ 'css-loader', 'sass-loader' ]
-                })
+				use: [ MiniCssExtractPlugin.loader, 'css-loader', 'resolve-url-loader', 'sass-loader' ]
+               
             }
 		]
 	},
 
 	plugins: [
-		new ExtractTextPlugin({
-            filename: '[name].css'
-		}),
-		new HtmlWebpackPlugin({
-            template: './src/index.html'
-        })
+		new MiniCssExtractPlugin({
+			filename: "[name].css",
+			chunkFilename: "[id].css"
+		})
 	],
 
 	optimization: {
         splitChunks: {
-            chunks: 'all'
+			chunks: 'all',
+			cacheGroups: {
+				angular: {
+					test:/[\\/]node_modules[\\/]@angular[\\/]/,
+					chunks:'all'
+				}
+			}
         }
-    },
-
-	resolve: {
-		extensions: [ '.tsx', '.ts', '.js','scss', 'css', 'woff', 'woff2', 'ttf', 'otf', 'eot' ]
-	}
+    }
 }

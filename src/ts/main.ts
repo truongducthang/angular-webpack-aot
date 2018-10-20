@@ -1,12 +1,21 @@
-import './polyfills'
+import "zone.js/dist/zone"
 import './third-parties'
 
-import {platformBrowserDynamic} from "@angular/platform-browser-dynamic"
-import {AppModule} from "./app/app.module"
+import {platformBrowser} from "@angular/platform-browser"
 import {enableProdMode} from "@angular/core"
 
-enableProdMode()
+declare var require:any;
 
-platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .catch(err => console.log(err))
+async function bootstrapProd() {
+
+    const MainModuleNgFactory = require("./app/app.module.ngfactory").AppModuleNgFactory
+    
+    enableProdMode()
+
+    platformBrowser().bootstrapModuleFactory(MainModuleNgFactory)
+        .catch(err => console.log(err))
+
+
+}
+
+bootstrapProd();
