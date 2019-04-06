@@ -15,7 +15,7 @@ module.exports = webpackMerge(commonConfig, {
 
     output: {
         path: abs(__dirname, "./dist"), // this path doesn't have any effect since in dev, we serve from memory (webpack-serve)
-        publicPath: '/devAssets/',
+        publicPath: '/',
         filename: '[name].js',
         chunkFilename: '[id].[name].chunk.js'
     },
